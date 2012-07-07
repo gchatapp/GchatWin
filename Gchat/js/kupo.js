@@ -54,12 +54,7 @@
     }
 
     function fragmentLoad(elements, options) {
-        try {
-            var appLayout = Windows.UI.ViewManagement.ApplicationView.getForCurrentView();
-            if (appLayout) {
-                appLayout.addEventListener('viewstatechanged', viewStateChanged);
-            }
-        } catch (e) { }
+        window.addEventListener('resize', viewStateChanged);
 
         elements.querySelector('.pageTitle').textContent = 'Kupo';
 

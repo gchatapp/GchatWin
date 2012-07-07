@@ -7,7 +7,7 @@
     var ui = WinJS.UI;
     var utils = WinJS.Utilities;
 
-    WinJS.Namespace.define("Aplication", {
+    WinJS.Namespace.define("Application", {
         PageControlNavigator: WinJS.Class.define(
             // Define the constructor function for the PageControlNavigator.
             function PageControlNavigator(element, options) {

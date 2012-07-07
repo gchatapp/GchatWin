@@ -1,13 +1,7 @@
-﻿// For an introduction to the Blank template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkId=232509
+﻿// For an introduction to the Split template, see the following documentation:
+// http://go.microsoft.com/fwlink/?LinkID=232447
 (function () {
     "use strict";
-    // Uncomment the following line to enable first chance exceptions.
-    //Debug.enableFirstChanceException(true);
-
-    var app = WinJS.Application;
-
-    var homePage;
 
     WinJS.Namespace.define("Kupo", {
         LaunchParameters: {
@@ -17,57 +11,48 @@
         }
     });
 
-    app.onactivated = function (e) {
-        if (e.detail.kind === Windows.ApplicationModel.Activation.ActivationKind.launch) {
-            if (e.detail.previousExecutionState !== Windows.ApplicationModel.Activation.ApplicationExecutionState.terminated) {
-                // TODO: This application has been newly launched. Initialize 
+    var app = WinJS.Application;
+    var activation = Windows.ApplicationModel.Activation;
+    var nav = WinJS.Navigation;
+    WinJS.strictProcessing();
+
+    app.addEventListener("activated", function (args) {
+        if (args.detail.kind === activation.ActivationKind.launch) {
+            if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
+                // TODO: This application has been newly launched. Initialize
                 // your application here.
             } else {
-                // TODO: This application has been reactivated from suspension. 
+                // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
             }
-            Kupo.LaunchParameters.arguments = e.detail.arguments;
+
+            Kupo.LaunchParameters.arguments = args.detail.arguments;
+
+            if (app.sessionState.history) {
+                nav.history = app.sessionState.history;
+            }
+            args.setPromise(WinJS.UI.processAll().then(function () {
+                if (nav.location) {
+                    nav.history.current.initialPlaceholder = true;
+                    return nav.navigate(nav.location, nav.state);
+                } else {
+                    return nav.navigate(Application.navigator.home);
+                }
+            }));
         } else if (e.detail.kind === Windows.ApplicationModel.Activation.ActivationKind.shareTarget) {
-            Kupo.LaunchParameters.shareOperation = e.detail.shareOperation;
+            Kupo.LaunchParameters.shareOperation = args.detail.shareOperation;
             WinJS.Navigation.navigate(homePage);
         } else if (e.detail.kind === Windows.ApplicationModel.Activation.ActivationKind.search) {
-            Kupo.LaunchParameters.searchQuery = e.detail.queryText;
+            Kupo.LaunchParameters.searchQuery = args.detail.queryText;
         }
+    });
 
-        WinJS.UI.processAll();
-    };
-
-    app.oncheckpoint = function (eventObject) {
+    app.oncheckpoint = function (args) {
         // TODO: This application is about to be suspended. Save any state
-        // that needs to persist across suspensions here. You might use the 
-        // WinJS.Application.sessionState object, which is automatically
-        // saved and restored across suspension. If you need to complete an
-        // asynchronous operation before your application is suspended, call
-        // eventObject.setPromise(). 
-    };
-
-    app.onnavigated = function (eventObject) {
-        WinJS.UI.Fragments.clone(e.detail.location, e.detail.state)
-            .then(function (frag) {
-                var host = document.getElementById('contentHost');
-                host.innerHTML = '';
-                host.appendChild(frag);
-                document.body.focus();
-
-                var backButton = document.querySelector('header[role=banner] .win-backbutton');
-                if (backButton) {
-                    backButton.addEventListener('click', function () {
-                        WinJS.Navigation.back();
-                    }, false);
-                    if (WinJS.Navigation.canGoBack) {
-                        backButton.removeAttribute('disabled');
-                    }
-                    else {
-                        backButton.setAttribute('disabled', 'true');
-                    }
-                }
-                WinJS.Application.queueEvent({ type: 'fragmentappended', location: e.detail.location, fragment: host, state: e.detail.state });
-            });
+        // that needs to persist across suspensions here. If you need to 
+        // complete an asynchronous operation before your application is 
+        // suspended, call args.setPromise().
+        app.sessionState.history = nav.history;
     };
 
     app.start();

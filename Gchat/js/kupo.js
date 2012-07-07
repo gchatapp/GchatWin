@@ -720,7 +720,7 @@
         });
     }
 
-    function itemInvoked(e) {
+    function _itemInvoked(e) {
         switchToChat(pageData.activeItems[e.detail.itemIndex].email);
     }
 
@@ -812,6 +812,6 @@
     
     WinJS.Namespace.define('splitPage', {
         fragmentLoad: fragmentLoad,
-        itemInvoked: itemInvoked
+        itemInvoked:  WinJS.Utilities.markSupportedForProcessing(_itemInvoked)
     });
 })();

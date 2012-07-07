@@ -186,8 +186,8 @@
     <Content Include="images\user.png" />
     <Content Include="images\widelogo.png" />
     <Content Include="js\console.js" />
-    <Content Include="js\default-old.js" />
     <Content Include="js\default.js" />
+    <Content Include="js\default-older.js" />
     <Content Include="js\gtalk.js" />
     <Content Include="js\imgur.js" />
     <Content Include="js\jquery.js" />

@@ -26,14 +26,12 @@
     var rosterTimeout = null;
     var timeoutData = null;
 
-    
-
     // Custom event raised after the fragment is appended to the DOM.
     WinJS.Application.addEventListener('fragmentappended', function handler(e) {
-        if (e.location === '/html/kupo.html') { fragmentLoad(e.fragment, e.state); }
+        if (e.location === '/pages/kupo/kupo.html') { fragmentLoad(e.fragment, e.state); }
     });
 
-    WinJS.UI.Pages.define('/html/kupo.html', {
+    WinJS.UI.Pages.define('/pages/kupo/kupo.html', {
         ready: function (element, options) {
             fragmentLoad(element, options);
         }

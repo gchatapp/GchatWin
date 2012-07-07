@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>456983b1-a679-4c10-ae50-260dda80475a</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>Gchat_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="css\default-old.css" />
+    <Content Include="css\default.css" />
+    <Content Include="css\kupo.css" />
+    <Content Include="default.html" />
+    <Content Include="images\appbar.add.png" />
+    <Content Include="images\appbar.attach.rest.png" />
+    <Content Include="images\appbar.door.leave.png" />
+    <Content Include="images\appbar.lock.png" />
+    <Content Include="images\appbar.pin.png" />
+    <Content Include="images\appbar.status.rest.png" />
+    <Content Include="images\appbar.unlock.png" />
+    <Content Include="images\available.png" />
+    <Content Include="images\away.png" />
+    <Content Include="images\badge.png" />
+    <Content Include="images\busy.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\offline.png" />
+    <Content Include="images\placeholder.png" />
+    <Content Include="images\ragefaces\emoticon.rage.21424.png" />
+    <Content Include="images\ragefaces\emoticon.rage.2229.png" />
+    <Content Include="images\ragefaces\emoticon.rage.aintthatsomeshit.png" />
+    <Content Include="images\ragefaces\emoticon.rage.awman.png" />
+    <Content Include="images\ragefaces\emoticon.rage.awyea.png" />
+    <Content Include="images\ragefaces\emoticon.rage.awyeah.png" />
+    <Content Include="images\ragefaces\emoticon.rage.beh.png" />
+    <Content Include="images\ragefaces\emoticon.rage.biggusta.png" />
+    <Content Include="images\ragefaces\emoticon.rage.blackhair.png" />
+    <Content Include="images\ragefaces\emoticon.rage.bzz.png" />
+    <Content Include="images\ragefaces\emoticon.rage.carrt.png" />
+    <Content Include="images\ragefaces\emoticon.rage.cereal.png" />
+    <Content Include="images\ragefaces\emoticon.rage.challengeaccepted.png" />
+    <Content Include="images\ragefaces\emoticon.rage.chrisbrpwned.png" />
+    <Content Include="images\ragefaces\emoticon.rage.creepy.png" />
+    <Content Include="images\ragefaces\emoticon.rage.deviltroll.png" />
+    <Content Include="images\ragefaces\emoticon.rage.dude.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ewbte.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ewbtetext.png" />
+    <Content Include="images\ragefaces\emoticon.rage.eyes.png" />
+    <Content Include="images\ragefaces\emoticon.rage.fap.png" />
+    <Content Include="images\ragefaces\emoticon.rage.femyao.png" />
+    <Content Include="images\ragefaces\emoticon.rage.forever.png" />
+    <Content Include="images\ragefaces\emoticon.rage.foreveralonelaugh.png" />
+    <Content Include="images\ragefaces\emoticon.rage.foreveralonewithyourmum.png" />
+    <Content Include="images\ragefaces\emoticon.rage.freddie.png" />
+    <Content Include="images\ragefaces\emoticon.rage.fu.png" />
+    <Content Include="images\ragefaces\emoticon.rage.fuckthatshit.png" />
+    <Content Include="images\ragefaces\emoticon.rage.fumanchu.png" />
+    <Content Include="images\ragefaces\emoticon.rage.futext.png" />
+    <Content Include="images\ragefaces\emoticon.rage.fy1.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gah.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gaytroll.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gbeh.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gfu.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ghappy.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gohno.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gserious.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gsmile.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gtfo.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gtongue.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gtroll.png" />
+    <Content Include="images\ragefaces\emoticon.rage.guhm.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gwah.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gwat.png" />
+    <Content Include="images\ragefaces\emoticon.rage.gyey.png" />
+    <Content Include="images\ragefaces\emoticon.rage.HAHAHAHAHA.png" />
+    <Content Include="images\ragefaces\emoticon.rage.happy.png" />
+    <Content Include="images\ragefaces\emoticon.rage.harpdarp.png" />
+    <Content Include="images\ragefaces\emoticon.rage.hehheh.png" />
+    <Content Include="images\ragefaces\emoticon.rage.high.png" />
+    <Content Include="images\ragefaces\emoticon.rage.hmm.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ifeelsyabreh.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ilovethebeefytaco.png" />
+    <Content Include="images\ragefaces\emoticon.rage.itstime.png" />
+    <Content Include="images\ragefaces\emoticon.rage.jackieeeee_.png" />
+    <Content Include="images\ragefaces\emoticon.rage.jasonqualman.png" />
+    <Content Include="images\ragefaces\emoticon.rage.jizzsplosion.png" />
+    <Content Include="images\ragefaces\emoticon.rage.lol.png" />
+    <Content Include="images\ragefaces\emoticon.rage.longneck.png" />
+    <Content Include="images\ragefaces\emoticon.rage.megusta.png" />
+    <Content Include="images\ragefaces\emoticon.rage.megustaperfect.png" />
+    <Content Include="images\ragefaces\emoticon.rage.melvin.png" />
+    <Content Include="images\ragefaces\emoticon.rage.milk.png" />
+    <Content Include="images\ragefaces\emoticon.rage.nomegusta.png" />
+    <Content Include="images\ragefaces\emoticon.rage.notbad.png" />
+    <Content Include="images\ragefaces\emoticon.rage.notokay.png" />
+    <Content Include="images\ragefaces\emoticon.rage.notsure.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ohcrap.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ohisthatacarrot.png" />
+    <Content Include="images\ragefaces\emoticon.rage.ok.png" />
+    <Content Include="images\ragefaces\emoticon.rage.okay.png" />
+    <Content Include="images\ragefaces\emoticon.rage.omg.png" />
+    <Content Include="images\ragefaces\emoticon.rage.perfect.png" />
+    <Content Include="images\ragefaces\emoticon.rage.pft.png" />
+    <Content Include="images\ragefaces\emoticon.rage.pfttext.png" />
+    <Content Include="images\ragefaces\emoticon.rage.pickletime.png" />
+    <Content Include="images\ragefaces\emoticon.rage.pissed.png" />
+    <Content Include="images\ragefaces\emoticon.rage.poker.png" />
+    <Content Include="images\ragefaces\emoticon.rage.red.png" />
+    <Content Include="images\ragefaces\emoticon.rage.rmilk.png" />
+    <Content Include="images\ragefaces\emoticon.rage.rtroll.png" />
+    <Content Include="images\ragefaces\emoticon.rage.sad.png" />
+    <Content Include="images\ragefaces\emoticon.rage.sadtroll.png" />
+    <Content Include="images\ragefaces\emoticon.rage.schlick.png" />
+    <Content Include="images\ragefaces\emoticon.rage.serious.png" />
+    <Content Include="images\ragefaces\emoticon.rage.smokeweedeveryday.png" />
+    <Content Include="images\ragefaces\emoticon.rage.son.png" />
+    <Content Include="images\ragefaces\emoticon.rage.splashy.png" />
+    <Content Include="images\ragefaces\emoticon.rage.stare.png" />
+    <Content Include="images\ragefaces\emoticon.rage.steve.png" />
+    <Content Include="images\ragefaces\emoticon.rage.straight.png" />
+    <Content Include="images\ragefaces\emoticon.rage.suprised.png" />
+    <Content Include="images\ragefaces\emoticon.rage.surprised.png" />
+    <Content Include="images\ragefaces\emoticon.rage.sweetjesus.png" />
+    <Content Include="images\ragefaces\emoticon.rage.teethrage.png" />
+    <Content Include="images\ragefaces\emoticon.rage.trap.png" />
+    <Content Include="images\ragefaces\emoticon.rage.troll.png" />
+    <Content Include="images\ragefaces\emoticon.rage.trolldad.png" />
+    <Content Include="images\ragefaces\emoticon.rage.trollmom.png" />
+    <Content Include="images\ragefaces\emoticon.rage.uhm.png" />
+    <Content Include="images\ragefaces\emoticon.rage.vuvu.png" />
+    <Content Include="images\ragefaces\emoticon.rage.warning.png" />
+    <Content Include="images\ragefaces\emoticon.rage.wat.png" />
+    <Content Include="images\ragefaces\emoticon.rage.wayevil.png" />
+    <Content Include="images\ragefaces\emoticon.rage.welp.png" />
+    <Content Include="images\ragefaces\emoticon.rage.wetodddog.png" />
+    <Content Include="images\ragefaces\emoticon.rage.whoa.png" />
+    <Content Include="images\ragefaces\emoticon.rage.why.png" />
+    <Content Include="images\ragefaces\emoticon.rage.wtf.png" />
+    <Content Include="images\ragefaces\emoticon.rage.yey.png" />
+    <Content Include="images\ragefaces\emoticon.rage.yuno.png" />
+    <Content Include="images\smalllogo.png" />
+    <Content Include="images\splashscreen.png" />
+    <Content Include="images\storelogo.png" />
+    <Content Include="images\user.png" />
+    <Content Include="images\widelogo.png" />
+    <Content Include="js\console.js" />
+    <Content Include="js\default-old.js" />
+    <Content Include="js\default.js" />
+    <Content Include="js\gtalk.js" />
+    <Content Include="js\imgur.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.plugins.js" />
+    <Content Include="js\kupo.js" />
+    <Content Include="js\navigator.js" />
+    <Content Include="js\navigator-older.js" />
+    <Content Include="js\roster.js" />
+    <Content Include="js\util.js" />
+    <Content Include="default-old.html" />
+    <Content Include="pages\kupo\kupo.html" />
+    <None Include="Gchat_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.1.0.RC, Version=1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XMPP\XMPP.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

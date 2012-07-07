@@ -1,0 +1,550 @@
+﻿.hidden {
+    display: none;
+}
+
+.win-right {
+    display: none;
+}
+
+.itemList {
+    height: 90%;
+    width: 100%;
+}
+
+.win-itemText {
+    font-family: Segoe UI;
+    font-size: 11pt;
+    letter-spacing: 0.02em;
+    line-height: 15pt;
+    opacity: 0.8;
+    overflow: hidden;
+}
+
+.pageTitle {
+    -ms-grid-column: 2;
+}
+
+.win-itemTextStrong {
+    font-family: Segoe UI Semibold;
+    font-size: 16pt;
+    letter-spacing: 0.02em;
+    line-height: 22pt;
+    opacity: 0.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.win-itemTextTertiary {
+    font-family: Segoe UI;
+    font-size: 9pt;
+    letter-spacing: 0.02em;
+    opacity: 0.49;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mainPage {
+    width: 100%;
+    height: 100%;
+    display: -ms-grid;
+    -ms-grid-columns: 120px 1fr 700px;
+    -ms-grid-rows: 132px 1fr 40px;
+}
+
+header[role=banner] {
+    width: 100%; 
+    height: 100%;
+    -ms-grid-column-span: 2;
+    display: -ms-grid;
+    -ms-grid-columns: 120px 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+.itemListSection {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+}
+
+.chatSection {
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    display: -ms-grid;
+    -ms-grid-rows: 180px 1fr 100px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.chatSection header {
+    -ms-grid-row: 1;
+    display: -ms-grid;
+    -ms-grid-columns: 120px 20px 1fr;
+    -ms-grid-rows: 120px;
+    margin-top: 60px;
+}
+
+.chatSection .chatContainer {
+    -ms-grid-row: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    margin-right: -20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.chatSection .chatContainer .chatAnchor {
+    position: absolute;
+    bottom: 0;
+    max-height:100%;
+}
+
+.chatSection .chatInput {
+    -ms-grid-row: 3;
+}
+
+.chatSection .image {
+    width: 120px;
+    height: 120px;
+}
+
+.chatSection .text {
+    -ms-grid-column: 3;
+}
+
+.chatSection h1 {
+    margin-top: 32px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.chatSection h2 {
+    margin: 0px;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+
+.chatSection .description {
+    text-overflow: ellipsis;
+}
+
+.chatSection .chatMessages {
+    margin-top: 16px;
+}
+
+.chatSection .chatMessages p {
+    margin-bottom: 16pt;
+}
+
+.itemList .win-item {
+    height: 48px;
+    padding: 8px;
+}
+
+.itemList .contactTemplate {
+    width: 100%;
+    height: 100%;
+    display: -ms-grid;
+    -ms-grid-columns: 48px 12px 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+.itemList .contactTemplateBackground {
+    -ms-grid-column: 3;
+    overflow: hidden;
+}
+
+.itemList .contactTemplateImage {
+    position: relative;
+}
+
+.itemList .contactAvatar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.itemList .contactStatusIcon {
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+}
+
+.itemList .contactNotificationCount {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    font-family: Segoe UI;
+    font-size: 8pt;
+    line-height: 15px;
+    overflow: hidden;
+    background-color: #6291D4;
+    text-align: center;
+}
+
+.chat {
+	font-size: 16px;
+	padding: 6px;
+	margin-bottom: 24px;
+	position:relative;
+	display: block;
+	width: 500px;
+    word-wrap: break-word;
+}
+
+.chat:after {
+	display: block;
+	position:absolute;
+	bottom: -12px;
+	content:" ";
+	border-style: solid;
+	border-width:6px;
+}
+
+.chatReceived {
+	background-color: #3663B2;
+}
+
+.chatReceived:after {
+	left: 6px;
+	border-color: #3663B2 transparent transparent #3663B2;
+}
+
+.chatSent {
+	margin-left: 170px;
+	background-color: #6291D4;
+}
+
+.chatSent:after {
+	left: 490px;
+	border-color: #6291D4 #6291D4 transparent transparent;
+}
+
+.chatInput textarea {
+	width: 492px;
+	margin-left: 170px;
+}
+
+.chat .date {
+    text-align: right;
+    color: #ddd;
+}
+
+.itemListFilters {
+	padding-top: 5px; 
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	margin-left: 6px;
+}
+
+.itemListFilter {
+	font-size: 20pt;
+	margin-right: 20px;
+	color: #686767;
+}
+
+.itemListFilterSelected {
+	color: white;
+}
+
+.chat .imgurThumbnail {
+    width: 100%;
+}
+
+.chat .imgurThumbnail img{
+    width: 100%;
+    border: 0;
+    margin-top: 6px;
+}
+
+.chat a {
+    color: white;
+    text-decoration: underline;
+}
+
+#login-overlay {
+	background: rgba(10, 10, 10, 0.5);
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	display: table;
+    z-index: 2000;
+}
+
+#login-overlay.hidden {
+    display: none;
+}
+
+#login-dialog {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#login-content {
+    background-color: #143885;
+}
+
+#login-content form {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+    padding-top: 6px;
+    padding-bottom: 24px;
+}
+
+#login-content form input[type=text], #login-content form input[type=password] {
+    display: block;
+    width: 95%;
+}
+
+#login-content #login-submit {
+    margin-top: 12px;
+    display: block;
+    text-align: right;
+}
+
+#login-content form a {
+    display: block; 
+    margin-top: 12px;
+    text-align: center;
+}
+
+#login-progress {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+    top: 4px;
+    color: white;
+    display: none;
+}
+
+#login-error {
+    color: #ff6a00;
+    margin-right: 10px;
+    display: none;
+}
+
+.status-menu {
+    padding-left: 0.2em;
+}
+
+#changeStatusFlyout img {
+    height: 1em;
+}
+
+/**** Share view ****/
+
+.share .mainPage {
+    -ms-grid-columns: 120px 500px 0px;
+}
+    
+.share .chat {
+	width: 300px;
+}
+
+.share .chatSent {
+	margin-left: 130px;
+}
+
+.share .chatSent:after {
+	left: 290px;
+}
+
+.share .chatInput textarea {
+	width: 292px;
+	margin-left: 130px;
+}
+
+/**** Snapped View ****/
+
+@media screen and (-ms-view-state: snapped) {
+    .win-contentTitle {
+        font-size: 11pt;
+        line-height: 15pt;
+    }
+
+    .mainPage {
+        -ms-grid-columns: 0px 320px 0px;
+        -ms-grid-rows: 132px 1fr 0px;
+    }
+
+    .itemListSection {
+        margin-left: 4px;
+    }
+
+    header[role=banner] {
+        display: -ms-grid;
+        -ms-grid-columns: 44px 1fr;
+        -ms-grid-rows: 1fr;
+    }
+
+    .itemList .win-item {
+        width: 282px;
+        height: 32px;
+        padding: 8px 0px 8px 8px;
+        margin-bottom: 0px;
+    }
+
+    .itemList .contactTemplate {
+        width: 100%;
+        height: 100%;
+        display: -ms-grid;
+        -ms-grid-columns: 32px 8px 1fr;
+        -ms-grid-rows: 1fr;
+    }
+
+    .itemList .contactName {
+        max-height: 30pt;
+        overflow: hidden;
+    }
+
+    .itemList .contactStatus {
+        display: none;
+    }
+
+    .win-itemTextStrong {
+        font-family: Segoe UI;
+        font-size: 11pt;
+        letter-spacing: 0.02em;
+        line-height: 15pt;
+        opacity: 0.8;
+        overflow: hidden;
+    }
+    
+    .chatSection {
+        -ms-grid-rows: 128px 1fr 60px;
+        margin-left: 4px;
+        margin-right: 0;
+        padding-right: 0;
+        width: 100%;
+        padding-right: 24px;
+    }
+
+    .chatSection header {
+        -ms-grid-columns: 64px 8px 1fr;
+        -ms-grid-rows: 64px;
+        margin-left: 50px;
+        margin-right: 20px;
+        width: 100%;
+    }
+
+    .chatSection header .contactStatus {
+        display: none;
+    }
+
+    .chatSection .chatAnchor {
+        width: 100%;
+    }
+    
+    .chatSection .image {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .chatSection h1 {
+        margin-top: 12px;
+    }
+
+    .chat {
+        width: 200px;
+    }
+    
+    .chatInput textarea {
+	    width: 192px;
+	    margin-left: 80px;
+    }
+    
+    .chatSent {
+	    margin-left: 80px;
+    }
+    
+    .chatSent:after {
+	    left: 190px;
+    }
+}
+
+/**** Fill View ****/
+
+@media screen and (-ms-view-state: fill)  {
+    .mainPage {
+        -ms-grid-columns: 120px 1fr 500px;
+    }
+    
+    .chat {
+	    width: 300px;
+    }
+
+    .chatSent {
+	    margin-left: 130px;
+    }
+
+    .chatSent:after {
+	    left: 290px;
+    }
+
+    .chatInput textarea {
+	    width: 292px;
+	    margin-left: 130px;
+    }
+}
+
+/**** Portrait View ****/
+
+@media screen and (-ms-view-state: device-portrait) {
+    .mainPage {
+        -ms-grid-columns: 120px 600px 0 1fr;
+    }
+    
+    .chat {
+	    width: 400px;
+    }
+
+    .chatSent {
+	    margin-left: 130px;
+    }
+
+    .chatSent:after {
+	    left: 390px;
+    }
+
+    .chatInput textarea {
+	    width: 392px;
+	    margin-left: 130px;
+    }
+}
+
+/* BUGGY, needs testing on real hardware. Not essential for Jan8 release.
+
+@media screen and (-ms-view-state: device-portrait) and (min-device-width: 1080px) {
+    .mainPage {
+        -ms-grid-columns: 120px 700px 0 1fr;
+    }
+    
+    .chat {
+        width: 400px;
+    }
+    
+    .chatInput textarea {
+	    width: 392px;
+	    margin-left: 280px;
+    }
+    
+    .chatSent {
+	    margin-left: 280px;
+    }
+    
+    .chatSent:after {
+	    left: 390px;
+    }
+}
+*/

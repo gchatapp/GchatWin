@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>splitPage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet">
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+
+    <!-- External libraries -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery.plugins.js"></script>
+
+    <!-- Kupo references -->
+    <script src="/js/console.js"></script>
+    <script src="/js/imgur.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/roster.js"></script>
+    <script src="/js/gtalk.js"></script>
+    <script src="/js/kupo.js"></script>
+    
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/kupo.css" />
+</head>
+<body>
+    <!-- This template is used to display each item in the ListView declared below. -->
+    <div class="itemTemplate" data-win-control="WinJS.Binding.Template">
+        <div class="contactTemplate">
+            <div class="contactTemplateImage">
+                <img class="contactAvatar" src="/images/placeholder.png" alt="" data-win-bind="src: photoUrl; alt: name" />
+                <img class="contactStatusIcon" src="/images/offline.png" alt="" data-win-bind="src: showImage; alt: show" /> 
+                <div class="contactNotificationCount" style="display: none" data-win-bind="textContent: notificationsCount; style.display: notificationsDisplay"></div>
+            </div>
+            <div class="contactTemplateBackground">
+                <div class="contactName win-itemTextStrong" data-win-bind="textContent: name"></div>
+                <div class="contactStatus win-itemTextTertiary" data-win-bind="textContent: status"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The content that will be loaded and displayed. -->
+    <div class="mainPage fragment">
+        <header role="banner" aria-label="Header content">
+            <button disabled class="win-backbutton" aria-label="Back"></button>
+            <h1 class="pageTitle win-title"></h1>
+        </header>
+        <section class="itemListSection">
+            <div class="itemListFilters">
+                <span id="roster-recent-tab" class="itemListFilter">recent</span>
+                <span id="roster-online-tab" class="itemListFilter itemListFilterSelected">online</span>
+                <span id="roster-all-tab" class="itemListFilter">all</span>
+                <span id="roster-search-tab" class="itemListFilter hidden">search</span>
+            </div>
+            <div class="itemList roster"
+                    data-win-control="WinJS.UI.ListView" 
+                    data-win-options="{oniteminvoked: splitPage.itemInvoked, layout: {type: WinJS.UI.ListLayout}, selectionMode: 'none' }"></div>
+        </section>
+        <section class="chatSection">
+            <header class="header">
+                <img class="image" src="/images/placeholder.png" alt="" data-win-bind="src: photoUrl; alt: name" />
+                <div class="text">
+                    <h1 class="title win-contentTitle contactName" data-win-bind="textContent: name"></h1>
+                    <h2 class="subtitle win-itemText contactStatus" data-win-bind="textContent: status"></h2>
+                    <h2 class="subtitle win-itemText contactShow" data-win-bind="textContent: show"></h2>
+                </div>
+            </header>
+
+            <div class="chatContainer">
+                <div class="chatAnchor">
+                    <div class="chatMessages"></div>
+                    <div class="typingStatus"></div>
+                </div>
+            </div>
+            <div class="chatInput hidden">
+                <form>
+                    <textarea></textarea>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="login-overlay" class="hidden" data-win-design-hidden="true">
+        <div id="login-dialog">
+			<div id="login-content">
+				<form>
+					<h2>Log in with your Google account</h2>
+					Google Username <br />
+					<input type="text" id="username" value="" /><br />
+					Google Password <br />
+					<input type="password" id="password" value="" /><br />
+					<input type="checkbox" id="rememberPassword" checked="checked" /> <label for="rememberPassword">Remember password</label><br />
+					<input type="checkbox" id="autoLogin" checked="checked" /> <label for="autoLogin">Automatically log-in</label><br />
+                    <div id="login-submit">
+					    <span id="login-error">Error in login. Check password or try later.</span>
+                        <progress id="login-progress"></progress>
+                        <input type="submit" id="login-button" value="Log in" />
+                    </div>
+                    <a href="https://accounts.google.com/SignUp" target="_blank">Create a Google account</a>
+				</form>
+			</div>
+        </div>
+    </div>
+
+
+    <!--
+    <div id="appbar" data-win-control="WinJS.UI.AppBar" aria-label="Command Bar" data-win-options="{position:'bottom', transient:true, autoHide:0, lightDismiss:true}">
+        <div class="win-left">
+            <button id="addContact" class="win-command">
+                <span class="win-commandicon win-large"><img src="/images/appbar.add.png" alt="Add contact" /></span><span class="win-label">Add contact</span>
+            </button>
+            <button id="changeStatus" class="win-command">
+                <span class="win-commandicon win-large"><img src="/images/appbar.status.rest.png" alt="Change status" /></span><span class="win-label">Change status</span>
+            </button>
+        </div>
+        <div class="win-right">
+            <button id="otr" class="win-command">
+                <span class="win-commandicon win-large"><img src="/images/appbar.lock.png" alt="OTR" /></span><span class="win-label">OTR</span>
+            </button>
+            <button id="sharePicMenu" class="win-command">
+                <span class="win-commandicon win-large"><img src="/images/appbar.attach.rest.png" alt="Attach" /></span><span class="win-label">Attach</span>
+            </button>
+            <button id="pin" class="win-command">
+                <span class="win-commandicon win-large"><img src="/images/appbar.pin.png" alt="Pin to start" /></span><span class="win-label">Pin to start</span>
+            </button>
+        </div>
+    </div>
+    
+    <div id="sharePicFlyout" data-win-control="WinJS.UI.Flyout" class="win-menu">
+        <button id="sharePic" role="menuitem">saved image</button>
+        <button id="shareCam" role="menuitem">take with webcam</button>
+    </div>
+
+    <div id="changeStatusFlyout" data-win-control="WinJS.UI.Flyout" class="win-menu">
+        <button role="menuitem" class="status-menu" value="available"><img src="/images/available.png" alt="Available" /> available</button>
+        <button role="menuitem" class="status-menu" value="busy"><img src="/images/busy.png" alt="Busy" /> busy</button>
+        <button role="menuitem" class="status-menu" value="invisible"><img src="/images/offline.png" alt="Offline" /> invisible</button>
+        <hr />
+        <button role="menuitem" class="status-menu" id="logout"><img src="/images/offline.png" alt="Offline" /> sign out of chat</button>
+    </div>
+    -->
+</body>
+</html>

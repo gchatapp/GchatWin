@@ -651,12 +651,6 @@
             $('#username').val(),
             $('#password').val()
         ).then(function () {
-            gtalk.register($('#username').val(), channel.uri).then(function (data) {
-                token = data.split('\n')[0];
-                //gtalk.offlineMessages(token);
-            }, function (data) {
-            });
-
             // save credentials
             settings['rememberPassword'] = $('#rememberPassword').attr('checked') == 'checked';
             if (settings['rememberPassword']) {

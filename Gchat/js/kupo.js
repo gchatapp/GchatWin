@@ -777,8 +777,21 @@
         $('.pageTitle').show();
         $('.win-left').show();
 
-        var isSnapped = Windows.UI.ViewManagement.ApplicationLayout.value === Windows.UI.ViewManagement.ApplicationLayoutState.snapped;
-        var isPortrait = Windows.Graphics.Display.DisplayProperties.currentOrientation === Windows.Graphics.Display.DisplayOrientations.portrait || Windows.Graphics.Display.DisplayProperties.currentOrientation === Windows.Graphics.Display.DisplayOrientations.portraitFlipped;
+        var viewStates = Windows.UI.ViewManagement.ApplicationViewState;
+        var newViewState = Windows.UI.ViewManagement.ApplicationView.value;
+
+        var isSnapped, isPortrait;
+
+        if (newViewState === viewStates.snapped) {
+            isSnapped = true;
+        } else if (newViewState === viewStates.filled) {
+            
+        } else if (newViewState === viewStates.fullScreenLandscape) {
+            
+        } else if (newViewState === viewStates.fullScreenPortrait) {
+            isPortrait = true;
+        }
+
         if (isSnapped || shareOperation || isPortrait) {
             $('.win-right').hide();
         } else {

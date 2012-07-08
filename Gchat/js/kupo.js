@@ -643,59 +643,51 @@
     }
 
     function login() {
-        Windows.Networking.PushNotifications.PushNotificationChannelManager.createPushNotificationChannelForApplicationAsync().then(function (channel) {
-            pushChannel = channel;
-            channel.addEventListener("pushnotificationreceived", function (s, e) { e.cancel = true; });
-            Console.log("Channel has been opened: " + channel.uri);
+        $('#login-progress').show();
+        $('#login-button').attr('disabled', 'true');
+        $('#login-error').hide();
 
-            $('#login-progress').show();
-            $('#login-button').attr('disabled', 'true');
-            $('#login-error').hide();
+        gtalk.login(
+            $('#username').val(),
+            $('#password').val()
+        ).then(function () {
+            gtalk.register($('#username').val(), channel.uri).then(function (data) {
+                token = data.split('\n')[0];
+                //gtalk.offlineMessages(token);
+            }, function (data) {
+            });
 
-            gtalk.login(
-                $('#username').val(),
-                $('#password').val()
-            ).then(function () {
-                gtalk.register($('#username').val(), channel.uri).then(function (data) {
-                    token = data.split('\n')[0];
-                    //gtalk.offlineMessages(token);
-                }, function (data) {
-                });
-
-                // save credentials
-                settings['rememberPassword'] = $('#rememberPassword').attr('checked') == 'checked';
-                if (settings['rememberPassword']) {
-                    settings['autoLogin'] = $('#autoLogin').attr('checked') == 'checked';
-                    settings['username'] = $('#username').val();
-                    try {
-                        var cred = new Windows.Security.Credentials.PasswordCredential("Kupo-usercred", $('#username').val(), $('#password').val());
-                        var vault = new Windows.Security.Credentials.PasswordVault();
-                        vault.add(cred);
-                    } catch (err) {
-                        // hope for the best
-                    }
+            // save credentials
+            settings['rememberPassword'] = $('#rememberPassword').attr('checked') == 'checked';
+            if (settings['rememberPassword']) {
+                settings['autoLogin'] = $('#autoLogin').attr('checked') == 'checked';
+                settings['username'] = $('#username').val();
+                try {
+                    var cred = new Windows.Security.Credentials.PasswordCredential("Kupo-usercred", $('#username').val(), $('#password').val());
+                    var vault = new Windows.Security.Credentials.PasswordVault();
+                    vault.add(cred);
+                } catch (err) {
+                    // hope for the best
                 }
+            }
 
-                $('#login-overlay').hide();
+            $('#login-overlay').hide();
 
             $('#login-progress').hide();
             $('#login-button').removeAttr('disabled');
 
-                if (activeEmail) {
-                    if (roster.get(activeEmail)) {
-                        switchToChat(activeEmail);
-                    } else {
-                        switchOnLogin = true;
-                    }
+            if (activeEmail) {
+                if (roster.get(activeEmail)) {
+                    switchToChat(activeEmail);
+                } else {
+                    switchOnLogin = true;
                 }
-            }, function (err) {
-                Console.log('wrong credentials');
+            }
+        }, function (err) {
+            Console.log('wrong credentials');
             $('#login-progress').hide();
             $('#login-button').removeAttr('disabled');
             $('#login-error').show();
-            });
-        }, function (error) {
-            Console.log("Could not create a channel (error number: " + error.number + ")");
         });
     }
 

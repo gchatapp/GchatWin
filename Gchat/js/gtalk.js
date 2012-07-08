@@ -349,28 +349,6 @@
             "</query></iq>";
 
             this.gtalk.write(msg);
-        },
-
-        register: function (username, uri) {
-            var requestString = 'as=0123456789abcdef0123456789abcdef&username=' + escape(username) + '&auth=' + escape(this.gtalk.getAuth()) + '&url=' + escape(uri);
-
-            return WinJS.xhr({
-                type: 'POST',
-                url: 'http://gtalkjsonproxy.lhchavez.com:12345/register',
-                headers: { 'Content-Length': requestString.length, 'Content-Type': "application/x-www-form-urlencoded" },
-                data: requestString
-            });
-        },
-
-        offlineMessages: function (token) {
-            var requestString = 'token=' + escape(token);
-
-            return WinJS.xhr({
-                type: 'POST',
-                url: 'http://gtalkjsonproxy.lhchavez.com:12345/messagequeue',
-                headers: { 'Content-Length': requestString.length, 'Content-Type': "application/x-www-form-urlencoded" },
-                data: requestString
-            });
         }
     });
 

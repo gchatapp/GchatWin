@@ -23,7 +23,9 @@
 
             document.body.appendChild(con);
 
-            //con.innerHTML = "Kupo console<br/><br/>";
+            con.appendChild(document.createTextNode("Kupo console"));
+            con.appendChild(document.createElement("br"));
+            con.appendChild(document.createElement("br"));
 
             document.addEventListener('keyup', function (evt) {
                 // F12, just like in Quake!
@@ -42,8 +44,14 @@
             window.console.log(msg);
 
             var console = document.getElementById('console');
-            //console.innerHTML += "&gt; " + ("" + msg).replace(/\n/g, "<br/> ").replace(/</g, '&lt;').replace(/>/g, '&gt;') + "<br/>";
-            //console.style.display = 'block';
+            msg = ("" + msg).split("\n");
+            console.appendChild(document.createTextNode("> " + (msg[0])));
+            for (var i = 1; i < msg.length; i++) {
+                console.appendChild(document.createElement("br"));
+                console.appendChild(document.createTextNode("  " + (msg[i])));
+            }
+            console.appendChild(document.createElement("br"));
+            console.style.display = 'block';
             console.scrollTop = console.scrollHeight;
         }
     });

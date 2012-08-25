@@ -31,7 +31,9 @@ namespace XMPP {
             if (Log != null) {
                 await window.Dispatcher.RunAsync(0, () =>
                 {
-                    Log(this, message);
+                    if (Log != null) {
+                        Log(this, message);
+                    }
                 });
             }
         }
@@ -42,7 +44,9 @@ namespace XMPP {
             {
                 await window.Dispatcher.RunAsync(0, () =>
                 {
-                    Message(this, new CallbackData() { Data = message });
+                    if (Message != null) {
+                        Message(this, new CallbackData() { Data = message });
+                    }
                 });
             }
         }
@@ -53,7 +57,9 @@ namespace XMPP {
             {
                 await window.Dispatcher.RunAsync(0, () =>
                 {
-                    Disconnect(this, message);
+                    if (Disconnect != null) {
+                        Disconnect(this, message);
+                    }
                 });
             }
         }

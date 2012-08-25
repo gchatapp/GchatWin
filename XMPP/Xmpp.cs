@@ -28,38 +28,28 @@ namespace XMPP {
         private XmlStream xmlStream;
 
         private async Task log(CoreWindow window, string message) {
-            if (Log != null) {
+            if (Log != null && window != null) {
                 await window.Dispatcher.RunAsync(0, () =>
                 {
-                    if (Log != null) {
-                        Log(this, message);
-                    }
+                    Log(this, message);
                 });
             }
         }
 
-        private async Task message(CoreWindow window, string message)
-        {
-            if (Message != null)
-            {
+        private async Task message(CoreWindow window, string message) {
+            if (Message != null && window != null) {
                 await window.Dispatcher.RunAsync(0, () =>
                 {
-                    if (Message != null) {
-                        Message(this, new CallbackData() { Data = message });
-                    }
+                    Message(this, new CallbackData() { Data = message });
                 });
             }
         }
 
-        private async Task disconnect(CoreWindow window, string message)
-        {
-            if (Disconnect != null)
-            {
+        private async Task disconnect(CoreWindow window, string message) {
+            if (Disconnect != null && window != null) {
                 await window.Dispatcher.RunAsync(0, () =>
                 {
-                    if (Disconnect != null) {
-                        Disconnect(this, message);
-                    }
+                    Disconnect(this, message);
                 });
             }
         }
@@ -138,8 +128,7 @@ namespace XMPP {
                     xmlStream = new XmlStream();
                     bool shouldRead = true;
 
-                    xmlStream.SetCallback(async (promptRead, data) =>
-                    {
+                    xmlStream.SetCallback(async (promptRead, data) => {
                         await log(window, "data " + data);
 
                         if (promptRead)
@@ -274,11 +263,9 @@ namespace XMPP {
 
         public async void Write(string stanza)
         {
-            var window = CoreWindow.GetForCurrentThread();
-
             this.writer.WriteString(stanza);
             await writer.StoreAsync();
-            await log(window, "out " + stanza);
+            await log(CoreWindow.GetForCurrentThread(), "out " + stanza);
         }
     }
 }
